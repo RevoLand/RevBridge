@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="RevBridge.Forms.Settings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:revBridge="clr-namespace:RevBridge"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d">
+    <Grid>
+        <controls:MetroTabControl controls:TabControlHelper.Underlined="TabPanel">
+            <controls:MetroTabItem Header="RevBridge">
+                <controls:MetroTabControl controls:TabControlHelper.Underlined="TabPanel">
+                    <controls:MetroTabItem Header="Filter">
+                        <WrapPanel Orientation="Vertical" Margin="5">
+                            <controls:ToggleSwitch IsOn="{revBridge:SettingBinding Path=RevBridge_Debugging}" Header="Debug Mode" />
+                        </WrapPanel>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="SQL">
+                        <WrapPanel Orientation="Horizontal">
+                            <GroupBox Header="Account" Margin="5">
+                                <WrapPanel Orientation="Vertical" Margin="5">
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Host" Text="{revBridge:SettingBinding Path=SQL_Account_Host}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Username" Text="{revBridge:SettingBinding Path=SQL_Account_User}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Password" Text="{revBridge:SettingBinding Path=SQL_Account_Password}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Database" Text="{revBridge:SettingBinding Path=SQL_Account_DBName}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                </WrapPanel>
+                            </GroupBox>
+                            <GroupBox Header="Log" Margin="5">
+                                <WrapPanel Orientation="Vertical" Margin="5">
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Host" Text="{revBridge:SettingBinding Path=SQL_Log_Host}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Username" Text="{revBridge:SettingBinding Path=SQL_Log_User}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Password" Text="{revBridge:SettingBinding Path=SQL_Log_Password}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Database" Text="{revBridge:SettingBinding Path=SQL_Log_DBName}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                </WrapPanel>
+                            </GroupBox>
+                            <GroupBox Header="Shard" Margin="5">
+                                <WrapPanel Orientation="Vertical" Margin="5">
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Host" Text="{revBridge:SettingBinding Path=SQL_Shard_Host}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Username" Text="{revBridge:SettingBinding Path=SQL_Shard_User}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Password" Text="{revBridge:SettingBinding Path=SQL_Shard_Password}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Database" Text="{revBridge:SettingBinding Path=SQL_Shard_DBName}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                </WrapPanel>
+                            </GroupBox>
+                            <GroupBox Header="Filter" Margin="5">
+                                <WrapPanel Orientation="Vertical" Margin="5">
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Host" Text="{revBridge:SettingBinding Path=SQL_RevBridge_Host}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Username" Text="{revBridge:SettingBinding Path=SQL_RevBridge_User}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Password" Text="{revBridge:SettingBinding Path=SQL_RevBridge_Password}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Database" Text="{revBridge:SettingBinding Path=SQL_RevBridge_DBName}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                </WrapPanel>
+                            </GroupBox>
+                        </WrapPanel>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="IP">
+                        <WrapPanel Orientation="Horizontal">
+                            <GroupBox Header="Gateway" Margin="5">
+                                <WrapPanel Orientation="Vertical" Margin="5">
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Listen IP" Text="{revBridge:SettingBinding Path=RevBridge_Gateway_IP}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Listen Port" Text="{revBridge:SettingBinding Path=RevBridge_Gateway_ListenPort}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Original Port" Text="{revBridge:SettingBinding Path=RevBridge_Gateway_RealPort}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                </WrapPanel>
+                            </GroupBox>
+                            <GroupBox Header="Agent" Margin="5">
+                                <WrapPanel Orientation="Vertical" Margin="5">
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Listen IP" Text="{revBridge:SettingBinding Path=RevBridge_Agent_IP}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Listen Port" Text="{revBridge:SettingBinding Path=RevBridge_Agent_ListenPort}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                    <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Original Port" Text="{revBridge:SettingBinding Path=RevBridge_Agent_RealPort}" MinWidth="160" MinHeight="30"  Margin="0, 5" />
+                                </WrapPanel>
+                            </GroupBox>
+                        </WrapPanel>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Security">
+                        <WrapPanel Orientation="Horizontal">
+                            <GroupBox Header="Proxy Database" Margin="5">
+                                <WrapPanel Orientation="Vertical" Margin="5">
+                                    <controls:ToggleSwitch IsOn="{revBridge:SettingBinding Path=Security_ProxyList_Active}" Header="Status" />
+                                    <controls:ToggleSwitch IsOn="{revBridge:SettingBinding Path=Security_ProxyList_FirewallBlock}" Header="Blocking Method" OnContent="Firewall" OffContent="Filter" />
+                                    <UniformGrid>
+                                        <Label Content="Proxy List Last Update:" />
+                                        <Label Content="{revBridge:SettingBinding Path=Security_ProxyList_LastUpdate}" />
+                                    </UniformGrid>
+                                    <Button Content="Update List" MinHeight="28" Click="Security_ProxyList_Update_ClickAsync" />
+                                </WrapPanel>
+                            </GroupBox>
+                            <GroupBox Header="GM Login Check" Margin="5">
+                                <WrapPanel Orientation="Vertical" Margin="5" MinWidth="300">
+                                    <controls:ToggleSwitch IsOn="{revBridge:SettingBinding Path=Security_GMList_Active}" Header="Status" />
+                                    <UniformGrid Columns="2">
+                                        <ListView MinHeight="100" MinWidth="100" Name="SecurityGmListView"/>
+                                        <StackPanel MinWidth="200" Margin="5,0,0,0">
+                                            <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.AutoWatermark="True" controls:TextBoxHelper.Watermark="Account Name" Name="Security_GMList_AccountName" MinHeight="30"/>
+                                            <Button MinHeight="28" Content="Add" Click="Security_GMList_AddButtonClick"/>
+                                            <Button MinHeight="28" Content="Remove" Click="Security_GMList_RemoveButtonClick"/>
+                                        </StackPanel>
+                                    </UniformGrid>
+                                </WrapPanel>
+                            </GroupBox>
+                        </WrapPanel>
+                    </controls:MetroTabItem>
+                </controls:MetroTabControl>
+            </controls:MetroTabItem>
+            <controls:MetroTabItem Header="Server">
+                <controls:MetroTabControl controls:TabControlHelper.Underlined="TabPanel">
+                    <controls:MetroTabItem Header="Common">
+                        <WrapPanel Orientation="Vertical" Margin="5">
+                            <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Auto Captcha" Text="{revBridge:SettingBinding Path=RevBridge_Captcha_AutoCaptcha}" MinWidth="250" MinHeight="40" />
+                        </WrapPanel>
+                    </controls:MetroTabItem>
+                    <controls:MetroTabItem Header="Notices">
+                        <WrapPanel Orientation="Horizontal" Margin="5">
+                            <TextBox controls:TextBoxHelper.UseFloatingWatermark="True" controls:TextBoxHelper.Watermark="Welcome Message" Text="{revBridge:SettingBinding Path=Server_WelcomeMessage}" MinWidth="250" MinHeight="40" />
+                        </WrapPanel>
+                    </controls:MetroTabItem>
+                </controls:MetroTabControl>
+            </controls:MetroTabItem>
+        </controls:MetroTabControl>
+    </Grid>
+</UserControl>

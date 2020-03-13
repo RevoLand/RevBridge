@@ -1,0 +1,34 @@
+﻿<controls:MetroWindow
+    x:Class="RevBridge.Forms.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:forms="clr-namespace:RevBridge.Forms"
+    mc:Ignorable="d"
+        Title="RevBridge" MinWidth="850" MinHeight="800" Width="850" Height="800"  Loaded="Window_LoadedAsync" Initialized="Window_Initialized" Closing="Window_Closing" Icon="/RevBridge;component/Resources/revbridge.png">
+    <Grid Margin="10">
+        <controls:MetroTabControl controls:TabControlHelper.Underlined="SelectedTabItem">
+            <controls:MetroTabItem Header="Main">
+                <Grid>
+                    <Button Name="StartBridge" Content="Start" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="StartBridge_Click"/>
+                    <Button IsEnabled="False" Name="StopBridge" Content="Stop" HorizontalAlignment="Left" Margin="102,10,0,0" VerticalAlignment="Top" Width="75" Click="StopBridge_Click"/>
+                    <Label Content="Gateway Connection Count:" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Agent Connection Count:" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Width="157"/>
+                    <Label Name="GatewayConnectionCount" Content="{Binding Count}" HorizontalAlignment="Left" Margin="172,60,0,0" VerticalAlignment="Top" Width="50"/>
+                    <Label Name="AgentConnectionCount" Content="{Binding Count}" HorizontalAlignment="Left" Margin="172,86,0,0" VerticalAlignment="Top" Width="50"/>
+
+                    <TextBox Text="10.1.1.1" x:Name="Ip" Margin="10,144,645,538"/>
+                    <Button x:Name="ButtonBanIp" Content="Ban" HorizontalAlignment="Left" Margin="152,144,0,0" VerticalAlignment="Top" Width="74" Click="Button_BanIP_Click" Height="42"/>
+                    <Button x:Name="ButtonUnbanIp" Content="Unban" HorizontalAlignment="Left" Margin="231,144,0,0" VerticalAlignment="Top" Width="74" Click="Button_UnbanIP_Click" Height="42"/>
+                    <Button x:Name="ButtonTest1" Content="Test1" HorizontalAlignment="Left" Margin="11,208,0,0" VerticalAlignment="Top" Width="74" Height="42" Click="Button_Test1_Click"/>
+                    <Button x:Name="ButtonTest2" Content="Test2" HorizontalAlignment="Left" Margin="93,208,0,0" VerticalAlignment="Top" Width="74" Height="42" Click="Button_Test2_Click"/>
+                </Grid>
+            </controls:MetroTabItem>
+            <TabItem Header="Settings">
+                <forms:Settings x:Name="Settings"/>
+            </TabItem>
+        </controls:MetroTabControl>
+    </Grid>
+</controls:MetroWindow>
