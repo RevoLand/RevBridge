@@ -311,18 +311,12 @@ namespace RevBridge.Functions.PacketHandlers
                             {
                                 default:
                                     //Debug.WriteLine($"Unknown item TypeID3: {RefItem.TypeID3} from item: [ {RefItem.ID} ] {RefItem.CodeName128}");
-                                    //Definitions.List.ProgramLogger.Information($"Unknown item TypeID3: {RefItem.TypeID3} from item: [ {RefItem.ID} ] {RefItem.CodeName128}");
+                                    Definitions.List.ProgramLogger.Information($"Unknown item TypeID3: {RefItem.TypeID3} from item: [ {RefItem.ID} ] {RefItem.CodeName128}");
                                     break;
 
                                 case 11:
-                                    packet.ReadShort(); // count? TODO: Stones!
                                     switch (RefItem.TypeID4)
                                     {
-                                        default:
-                                            //Debug.WriteLine($"Unknown item TypeID4: {RefItem.TypeID4} from item: [ {RefItem.ID} ] {RefItem.CodeName128}");
-                                            Definitions.List.ProgramLogger.Information($"Unknown item TypeID4: {RefItem.TypeID4} from item: [ {RefItem.ID} ] {RefItem.CodeName128}");
-                                            break;
-
                                         case 1:
                                         case 2:
                                             packet.ReadByte(); // AttributeAssimilationProbability
@@ -454,15 +448,17 @@ namespace RevBridge.Functions.PacketHandlers
                 var nextMastery = packet.ReadByte();
                 while (nextMastery == 1)
                 {
+                    var masteryId = packet.ReadInt();
+                    var masteryLevel = packet.ReadByte();
                     Character.Masteries.Add(new Definitions.Structs.Character.Mastery
                     {
-                        MasteryID = packet.ReadInt(),
-                        MasteryLevel = packet.ReadByte()
+                        MasteryID = masteryId,
+                        MasteryLevel = masteryLevel
                     });
 
-                    nextMastery = packet.ReadByte(); // nextMastery?
+                    nextMastery = packet.ReadByte(); // nextMastery? --- bittiğinde 02?
                 }
-                packet.ReadByte(); // unkByte
+                packet.ReadByte(); // unkByte 00
 
                 Character.Skills.Clear();
                 var nextSkill = packet.ReadByte();
@@ -474,7 +470,7 @@ namespace RevBridge.Functions.PacketHandlers
                         Enabled = packet.ReadByte()
                     });
 
-                    nextSkill = packet.ReadByte();
+                    nextSkill = packet.ReadByte(); // bittiğinde 02?
                 }
 
                 var completedQuestCount = packet.ReadShort();
